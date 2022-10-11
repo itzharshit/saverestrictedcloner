@@ -18,12 +18,12 @@ ZAID = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 @ZAID.on_message(filters.private & filters.command("start"))
 async def hello(client: ZAID, message: Message):
-    await message.reply("Hii, i can your park your bot without using any server/nJust send `/park your bot token`, that's all.")
+    await message.reply("Hii, i can your park your bot without using any server\nJust send `/park bot_token`, that's all.")
 
 ##Copy from here 
 
 # © By Itz-Zaid Your motherfucker if uh Don't gives credits.
-@ZAID.on_message(filters.private & filters.command("clone"))
+@ZAID.on_message(filters.private & filters.command("park"))
 async def clone(bot: ZAID, msg: Message):
     chat = msg.chat
     text = await msg.reply("Send /park with your bot token.\nYou can get your bot token from @botfather\n\ne.g. `/park bot_token`.")
@@ -36,7 +36,7 @@ async def clone(bot: ZAID, msg: Message):
         await client.start()
         idle()
         user = await client.get_me()
-        await msg.reply(f"Successfully started your bot.",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Start Bot", url="https://t.me/@{user.username}")]]))
+        await msg.reply(f"Successfully started your bot.",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Start Bot", url="fhttps://t.me/@{user.username}")]]))
     except Exception as e:
         print(p) 
         await msg.reply(f"An error occurred, please check your BOT_TOKEN")
