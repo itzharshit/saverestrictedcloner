@@ -8,16 +8,16 @@ from pyrogram.types import *
 os.system("apt install git curl python3-pip ffmpeg -y")
 
 
-API_ID = ""
-API_HASH = ""
-TOKEN = ""
+API_ID = 10113557
+API_HASH = "edd604444208db8ce6da5be78286187a"
+TOKEN = "5680490457:AAHBb_s7dsGKA8y79B5Hbwkz_vjDNRCjBaw"
 
 ZAID = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 
 @ZAID.on_message(filters.private & filters.command("start"))
 async def hello(client: ZAID, message: Message):
-    await message.reply("Hey! It's Just a Cloner Bot example source Code")
+    await message.reply("Hlooo! It's Just a Cloner Bot example source Code")
 
 ##Copy from here 
 
