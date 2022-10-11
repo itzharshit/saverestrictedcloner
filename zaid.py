@@ -27,7 +27,7 @@ async def clone(bot: ZAID, msg: Message):
     chat = msg.chat
     #text = await msg.reply("Usage:\n\n /clone token")
     #cmd = msg.command
-    phone = await bot.ask(chat.id, "Now send your bot token created from @botfather.")
+    phone = await ZAID.ask(chat.id, "Now send your bot token created from @botfather.")
     try:
         await text.edit("Booting Your Client")
                    # change this Directry according to ur repo
