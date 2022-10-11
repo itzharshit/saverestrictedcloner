@@ -29,7 +29,7 @@ async def clone(bot: ZAID, msg: Message):
     #cmd = msg.command
     phone = await ZAID.ask(chat.id, "Now send your bot token created from @botfather.")
     try:
-        await text.edit("Booting Your Client")
+        await msg.reply("Booting Your Client")
                    # change this Directry according to ur repo
         client = Client(":memory:", API_ID, API_HASH, bot_token=phone, plugins={"root": "handlers"})
         await client.start()
