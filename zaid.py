@@ -36,10 +36,10 @@ async def clone(bot: ZAID, msg: Message):
         await client.start()
         idle()
         user = await client.get_me()
-        await msg.reply(f"Successfully started your bot.",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Start Bot", url="fhttps://t.me/@{user.username}")]]))
+        await text.edit(f"Successfully started your bot.",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Start Bot", url="fhttps://t.me/@{user.username}")]]))
     except Exception as e:
         print(p) 
-        await msg.reply(f"An error occurred, please check your BOT_TOKEN")
+        await text.edit(f"An error occurred, please check your BOT_TOKEN")
 #End
 ##This code fit with every pyrogram Codes just import then @Client Xyz!
 
