@@ -16,28 +16,28 @@ ZAID = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 
 @ZAID.on_message(filters.private & filters.command("start"))
-async def hello(client: ZAID, message: Message):
-    await message.reply("Hi, i am Parker Bot created by @pyrogrammers\nI can park your bot for maintenance mode.\nJust send ")
+async def hello(event):
+    await event.reply("Hi, i am Parker Bot created by @pyrogrammers\nI can park your bot for maintenance mode.\nJust send ")
 
 ##Copy from here 
 
 # © By Itz-Zaid Your motherfucker if uh Don't gives credits.
 @ZAID.on_message(filters.private & filters.command("Park"))
-async def clone(bot: ZAID, msg: Message):
-    chat = msg.chat
+async def clone(event):
+    chat = event.chat
     #text = await msg.reply("Usage:\n\n /clone token")
     #cmd = msg.command
     phone = await ZAID.ask(chat.id, "Now send your bot token created from @botfather.")
     try:
-        await msg.reply("Booting Your Client")
+        await phone.edit("Booting Your Client")
                    # change this Directry according to ur repo
         client = Client(":memory:", API_ID, API_HASH, bot_token=phone, plugins={"root": "handlers"})
         await client.start()
         idle()
         user = await client.get_me()
-        await msg.reply(f"Your Client Has Been Successfully Started As @{user.username}! ✅ \n\n Now Add Your Bot And Assistant @Amala_music_assistant_1 To Your Chat!\n\nThanks for Cloning.")
+        await event.reply(f"Your Client Has Been Successfully Started As @{user.username}! ✅ \n\n Now Add Your Bot And Assistant @Amala_music_assistant_1 To Your Chat!\n\nThanks for Cloning.")
     except Exception as e:
-        await msg.reply(f"**ERROR:** `{str(e)}`\nPress /start to Start again.")
+        await event.reply(f"**ERROR:** `{str(e)}`\nPress /start to Start again.")
 #End
 ##This code fit with every pyrogram Codes just import then @Client Xyz!
 
