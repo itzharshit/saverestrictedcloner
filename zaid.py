@@ -4,7 +4,7 @@ import asyncio
 import time
 from pyrogram import *
 from pyrogram.types import *
-
+from pyromod import listen
 os.system("apt install git curl python3-pip ffmpeg -y")
 
 
@@ -17,17 +17,17 @@ ZAID = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 @ZAID.on_message(filters.private & filters.command("start"))
 async def hello(client: ZAID, message: Message):
-    await message.reply("Hlooo! It's Just a Cloner Bot example source Code")
+    await message.reply("Hi, i am Parker Bot created by @pyrogrammers\nI can park your bot for maintenance mode.\nJust send ")
 
 ##Copy from here 
 
 # © By Itz-Zaid Your motherfucker if uh Don't gives credits.
-@ZAID.on_message(filters.private & filters.command("clone"))
+@ZAID.on_message(filters.private & filters.command("Park"))
 async def clone(bot: ZAID, msg: Message):
     chat = msg.chat
-    text = await msg.reply("Usage:\n\n /clone token")
-    cmd = msg.command
-    phone = msg.command[1]
+    #text = await msg.reply("Usage:\n\n /clone token")
+    #cmd = msg.command
+    phone = await bot.ask(chat.id, "Now send your bot token created from @botfather.")
     try:
         await text.edit("Booting Your Client")
                    # change this Directry according to ur repo
