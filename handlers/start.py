@@ -1,6 +1,7 @@
 #Copyright By Itz-Zaid
 # @Timesnotwaiting on Telegram!
-
+import re
+import aiohttp
 from pyrogram import Client
 from pyrogram.types import *
 from pyrogram import filters
@@ -25,3 +26,19 @@ async def link_handler(client: Client, message: Message):
             await get_msg(link)
         except Exception as e:
             await message.reply(f'Error: `{e}`', quote=True)
+
+
+async def get_msg(client, sender, msg_link):
+    chat = ""
+    if 't.me/c/' in msg_link:
+        await message.reply(f'Sorry, but i can only give you message of public channel.', quote=True)
+    else:
+        chat =  msg_link.split("/")[-2]
+        try:
+            await client.copy_message(int(sender), chat, msg_id)
+        except FloodWait as f:
+            await message.reply(f'Bot is limited by telegram for {f.value + 2} seconds.\nPlease try again after {f.value + 2}' seconds., quote=True)
+            await asyncio.sleep(f.value)
+        except Exception as e: 
+            return await edit.edit(f'Error: `{e}`', quote=True)
+                
