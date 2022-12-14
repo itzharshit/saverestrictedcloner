@@ -50,6 +50,6 @@ async def hello(client: ZAID, message: Message):
     try:
         await message.forward(LOGS)
     except:
-        print(Please Set LOGS channel as a environment Variables.)
+        print("Please Set LOGS channel as a environment Variables.")
 ZAID.start()
 idle()
