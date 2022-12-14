@@ -9,7 +9,7 @@ from pyrogram import filters
 
 
 @Client.on_message(filters.command('start') & filters.private)
-async def echo(client: Client, message: Message):
+async def start(client: Client, message: Message):
     user = await client.get_me()
     await message.reply(f"**Hi {message.chat.first_name}!**\n\nI am {user.first_name}, I can save Restricted Contents of any public channel of telegram.\nJust send me link of your message i will give you that message here.")
 
@@ -29,7 +29,8 @@ async def link_handler(client: Client, message: Message):
 
 
 async def get_msg(client, sender, msg_link):
-    chat = ""
+    chat =  msg_link.split("/")[-2]
+    msg_id = int(msg_link.split("/")[-1])
     if 't.me/c/' in msg_link:
         await message.reply(f'Sorry, but i can only give you message of public channel.', quote=True)
     else:
