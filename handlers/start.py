@@ -6,7 +6,21 @@ from pyrogram import Client
 from pyrogram.types import *
 from pyrogram import filters
 
-
+async def copy_msg(sender, msg_link):
+    chat =  msg_link.split("/")[-2]
+    msg_id = int(msg_link.split("/")[-1])
+    if 't.me/c/' in msg_link:
+        await message.reply(f'Sorry, but i can only give you message of public channel.', quote=True)
+    else:
+        chat =  msg_link.split("/")[-2]
+        try:
+            await client.copy_message(int(sender), chat, msg_id)
+        except FloodWait as f:
+            await message.reply(f'Bot is limited by telegram for {f.value + 2} seconds.\nPlease try again after {f.value + 2}' seconds., quote=True)
+            await asyncio.sleep(f.value)
+        except Exception as e: 
+            return await edit.edit(f'Error: `{e}`', quote=True)
+                
 
 @Client.on_message(filters.command('start') & filters.private)
 async def start(client: Client, message: Message):
@@ -28,18 +42,3 @@ async def link_handler(client: Client, message: Message):
             await message.reply(f'Error: `{e}`', quote=True)
 
 
-async def copy_msg(sender, msg_link):
-    chat =  msg_link.split("/")[-2]
-    msg_id = int(msg_link.split("/")[-1])
-    if 't.me/c/' in msg_link:
-        await message.reply(f'Sorry, but i can only give you message of public channel.', quote=True)
-    else:
-        chat =  msg_link.split("/")[-2]
-        try:
-            await client.copy_message(int(sender), chat, msg_id)
-        except FloodWait as f:
-            await message.reply(f'Bot is limited by telegram for {f.value + 2} seconds.\nPlease try again after {f.value + 2}' seconds., quote=True)
-            await asyncio.sleep(f.value)
-        except Exception as e: 
-            return await edit.edit(f'Error: `{e}`', quote=True)
-                
