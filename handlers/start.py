@@ -23,12 +23,12 @@ async def link_handler(client: Client, message: Message):
         return
     for link in links:
         try:
-            await get_msg(int(message.chat.id), link)
+            await get_msg(message.chat.id), link)
         except Exception as e:
             await message.reply(f'Error: `{e}`', quote=True)
 
 
-async def get_msg(message.chat.id, msg_link):
+async def get_msg(sender, msg_link):
     chat =  msg_link.split("/")[-2]
     msg_id = int(msg_link.split("/")[-1])
     if 't.me/c/' in msg_link:
@@ -36,7 +36,7 @@ async def get_msg(message.chat.id, msg_link):
     else:
         chat =  msg_link.split("/")[-2]
         try:
-            await client.copy_message(int(message.chat.id), chat, msg_id)
+            await client.copy_message(int(sender), chat, msg_id)
         except FloodWait as f:
             await message.reply(f'Bot is limited by telegram for {f.value + 2} seconds.\nPlease try again after {f.value + 2}' seconds., quote=True)
             await asyncio.sleep(f.value)
