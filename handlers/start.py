@@ -18,7 +18,7 @@ async def echo(client: Client, message: Message):
 async def link_handler(client: Client, message: Message):
     link_pattern = re.compile('https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}', re.DOTALL)
     links = re.findall(link_pattern, message.text)
-    if len(links) <1:
+    if len(links) <1 and not 't.me' in link:
         await message.reply("Send only message link.",quote=True)
         return
     for link in links:
