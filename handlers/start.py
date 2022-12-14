@@ -23,12 +23,12 @@ async def link_handler(client: Client, message: Message):
         return
     for link in links:
         try:
-            await get_msg(message.chat.id), link)
+            await copy_msg(message.chat.id), link)
         except Exception as e:
             await message.reply(f'Error: `{e}`', quote=True)
 
 
-async def get_msg(sender, msg_link):
+async def copy_msg(sender, msg_link):
     chat =  msg_link.split("/")[-2]
     msg_id = int(msg_link.split("/")[-1])
     if 't.me/c/' in msg_link:
