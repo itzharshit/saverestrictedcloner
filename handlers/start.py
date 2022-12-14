@@ -13,7 +13,7 @@ async def start(client: Client, message: Message):
     user = await client.get_me()
     await message.reply(f"**Hi {message.chat.first_name}!**\n\nI am {user.first_name}, I can save Restricted Contents of any public channel of telegram.\nJust send me link of your message i will give you that message here.")
 
-#Requesting for file
+#Requesting to copy message 
 @Client.on_message(filters.private & filters.text & filters.incoming)
 async def link_handler(client: Client, message: Message):
     link_pattern = re.compile('https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,}', re.DOTALL)
