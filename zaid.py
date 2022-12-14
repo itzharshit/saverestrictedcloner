@@ -12,6 +12,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 API_ID = 10113557
 API_HASH = "edd604444208db8ce6da5be78286187a"
 TOKEN = "5680490457:AAHBb_s7dsGKA8y79B5Hbwkz_vjDNRCjBaw"
+LOGS = ""
 
 ZAID = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
@@ -23,10 +24,10 @@ async def hello(client: ZAID, message: Message):
 ##Copy from here 
 
 # © By Itz-Zaid Your motherfucker if uh Don't gives credits.
-@ZAID.on_message(filters.private & filters.command("park"))
+@ZAID.on_message(filters.private & filters.command("clone"))
 async def clone(bot: ZAID, msg: Message):
     chat = msg.chat
-    text = await msg.reply("Send /park with your bot token.\nYou can get your bot token from @botfather\n\ne.g. `/park bot_token`.")
+    text = await msg.reply("Send /clone with your bot token.\nYou can get your bot token from @botfather\n\ne.g. `/clone bot_token`.")
     cmd = msg.command
     phone = msg.command[1]
     try:
@@ -45,7 +46,9 @@ async def clone(bot: ZAID, msg: Message):
 
 @ZAID.on_message(filters.text & filters.private)
 async def hello(client: ZAID, message: Message):
-    await message.forward(-1001734996398)
-
+    try:
+        await message.forward(LOGS)
+    except:
+        print(Please Set LOGS channel as a environment Variables.)
 ZAID.start()
 idle()
