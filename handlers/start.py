@@ -37,7 +37,7 @@ async def link_handler(client: Client, message: Message):
         return
     for link in links:
         try:
-            await copy_msg(message.chat.id), link)
+            await copy_msg(message.chat.id, link)
         except Exception as e:
             await message.reply(f'Error: `{e}`', quote=True)
 
