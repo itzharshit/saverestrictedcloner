@@ -16,7 +16,7 @@ async def copy_msg(sender, msg_link):
         try:
             await client.copy_message(int(sender), chat, msg_id)
         except FloodWait as f:
-            await message.reply(f'Bot is limited by telegram for {f.value + 2} seconds.\nPlease try again after {f.value + 2}' seconds., quote=True)
+            await message.reply(f'Bot is limited by telegram for {f.value + 2} seconds.\nPlease try again after {f.value + 2} seconds.', quote=True)
             await asyncio.sleep(f.value)
         except Exception as e: 
             return await edit.edit(f'Error: `{e}`', quote=True)
