@@ -10,7 +10,7 @@ from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, 
 
 API_ID = 10113557
 API_HASH = "edd604444208db8ce6da5be78286187a"
-TOKEN = "5680490457:AAHBb_s7dsGKA8y79B5Hbwkz_vjDNRCjBaw"
+TOKEN = "5533358298:AAGX817ACmIMJHYPUf3VR7Ul08aVcZ6byxs"
 LOGS = "-1005846633"
 
 ZAID = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
