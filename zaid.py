@@ -37,7 +37,7 @@ async def clone(bot: ZAID, msg: Message):
         idle()
         user = await client.get_me()
         await text.edit(f"Successfully started your bot.",reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton("Start Bot", url=f"https://t.me/{user.username}")]]))
-        await msg.send_message(LOGS, "#NEW_BOT {user.username}")
+        #await msg.send_message(LOGS, "#NEW_BOT {user.username}")
     except Exception as e:
         print(e) 
         await text.edit(f"An error occurred, please check your BOT_TOKEN")
