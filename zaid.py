@@ -5,14 +5,13 @@ import time
 from pyrogram import *
 from pyrogram.types import *
 from pyromod import listen
-os.system("apt install git curl python3-pip ffmpeg -y")
 from pyrogram.types import Message, InlineKeyboardMarkup, InlineKeyboardButton, InlineQuery, InlineQueryResultArticle, \
     InputTextMessageContent
 
 API_ID = 10113557
 API_HASH = "edd604444208db8ce6da5be78286187a"
 TOKEN = "5680490457:AAHBb_s7dsGKA8y79B5Hbwkz_vjDNRCjBaw"
-LOGS = ""
+LOGS = "-1005846633"
 
 ZAID = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
